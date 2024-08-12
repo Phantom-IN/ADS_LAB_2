@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNIST Digit Prediction</title>
+</head>
+<body>
+    <h1>MNIST Digit Prediction</h1>
+    <form action="/mnist" method="post" enctype="multipart/form-data">
+        <label for="file">Upload an image of a digit (28x28 pixels):</label>
+        <input type="file" id="file" name="file" accept="image/*" required>
+        <button type="submit">Predict</button>
+    </form>
+    {% if digit is not none %}
+    <h2>Predicted Digit: {{ digit }}</h2>
+    {% endif %}
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <a href="/"><button>Back to Home</button></a>
+</body>
+</html>

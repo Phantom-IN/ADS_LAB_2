@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detection</title>
+</head>
+<body>
+    <h1>Spam Detection</h1>
+    <form action="/spam" method="post">
+        <label for="message">Enter a message:</label><br><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+        <button type="submit">Check if Spam</button>
+    </form>
+    {% if message %}
+    <h2>Message: {{ message }}</h2>
+    <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+    <a href="/"><button>Back to Home</button></a>
+</body>
+</html>
