@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Welcome to the Flask App</h1>
-    <p>This is the main page of the application.</p>
-    <a href="/mnist"><button>Go to MNIST Digit Prediction</button></a>
-    <a href="/spam"><button>Go to Spam Detection</button></a>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white shadow-md rounded-lg p-8 max-w-lg w-full text-center">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4">Welcome to the Flask App</h1>
+        <p class="text-gray-600 mb-6">This is the main page of the application.</p>
+        <div class="space-y-4">
+            <a href="/mnist">
+                <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full">
+                    Go to MNIST Digit Prediction
+                </button>
+            </a>
+            <br>
+            <br>
+            <a href="/spam">
+                <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full w-full">
+                    Go to Spam Detection
+                </button>
+            </a>
+        </div>
+    </div>
 </body>
+
 </html>

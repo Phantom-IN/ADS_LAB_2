@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spam Detection</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Spam Detection</h1>
-    <form action="/spam" method="post">
-        <label for="message">Enter a message:</label><br><br>
-        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-        <button type="submit">Check if Spam</button>
-    </form>
-    {% if message %}
-    <h2>Message: {{ message }}</h2>
-    <h3>Prediction: {{ prediction }}</h3>
-    {% endif %}
-    <a href="/"><button>Back to Home</button></a>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white shadow-md rounded-lg p-8 max-w-lg w-full">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Spam Detection</h1>
+        <form action="/spam" method="post" class="space-y-4">
+            <div>
+                <label for="message" class="block text-gray-700 font-medium mb-2">Enter a message:</label>
+                <textarea id="message" name="message" rows="4" cols="50" required
+                    class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </div>
+            <button type="submit"
+                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full">Check if Spam</button>
+        </form>
+        {% if message %}
+        <div class="mt-6 text-center">
+            <h2 class="text-2xl font-semibold text-gray-800">Message: {{ message }}</h2>
+            <h3 class="text-xl {{ 'text-green-600' if prediction == 'Ham' else 'text-red-600' }} font-semibold">Prediction: {{ prediction }}</h3>
+        </div>
+        {% endif %}
+        <div class="mt-6 text-center">
+            <a href="/" class="text-blue-500 hover:underline">Back to Home</a>
+        </div>
+    </div>
 </body>
+
 </html>

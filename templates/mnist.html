@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MNIST Digit Prediction</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>MNIST Digit Prediction</h1>
-    <form action="/mnist" method="post" enctype="multipart/form-data">
-        <label for="file">Upload an image of a digit (28x28 pixels):</label>
-        <input type="file" id="file" name="file" accept="image/*" required>
-        <button type="submit">Predict</button>
-    </form>
-    {% if digit is not none %}
-    <h2>Predicted Digit: {{ digit }}</h2>
-    {% endif %}
-    {% if error %}
-    <p style="color: red;">{{ error }}</p>
-    {% endif %}
-    <a href="/"><button>Back to Home</button></a>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white shadow-md rounded-lg p-8 max-w-md w-full">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">MNIST Digit Prediction</h1>
+        <form action="/mnist" method="post" enctype="multipart/form-data" class="space-y-4">
+            <div>
+                <label for="file" class="block text-gray-700 font-medium mb-2">Upload an image of a digit (28x28 pixels):</label>
+                <input type="file" id="file" name="file" accept="image/*" required class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:border-blue-500">
+            </div>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full">Predict</button>
+        </form>
+        {% if digit is not none %}
+        <div class="mt-6 text-center">
+            <h2 class="text-2xl font-semibold text-gray-800">Predicted Digit: {{ digit }}</h2>
+        </div>
+        {% endif %}
+        {% if error %}
+        <div class="mt-4 text-center">
+            <p class="text-red-600">{{ error }}</p>
+        </div>
+        {% endif %}
+        <div class="mt-6 text-center">
+            <a href="/" class="text-blue-500 hover:underline">Back to Home</a>
+        </div>
+    </div>
 </body>
+
 </html>
